@@ -11,6 +11,8 @@ import java.util.Map;
 @Slf4j
 @CrossOrigin //允许跨域请求
 public class UserController {
+    int a =10; 
+    int b=20;
 
     @GetMapping("/user/findOne")
     public Map<String,Object> findOne(String id){
