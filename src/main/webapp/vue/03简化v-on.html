@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+     <div id="dd" style="background-color:#fc7400; width: 100px; height: 100px;" @click="handleClick">{{msg}}-----{{age}}</div>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"你好",
+            age:18
+        },
+        methods:{
+            handleClick(){
+                this.age++;
+            }
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

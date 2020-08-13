@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue模板</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <input type="text" v-model="cityName" @keyup.enter="getInfo"> <input type="button"  value="点我查询" @click="getInfo(cityName)"> <br>
+    <a href="javascript:;" @click.prevent="getInfo('北京')">北京</a>
+    <a href="" @click.prevent="getInfo('上海')">上海</a>
+    <a href="" @click.prevent="getInfo('郑州')">郑州</a>
+    <a href="" @click.prevent="getInfo('天津')">天津</a>
+    <a href="" @click.prevent="getInfo('武汉')">武汉</a>
+    <hr>
+    <h4>当前天气信息为：<span v-text="msg"></span></h4>
+
+
+</div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            cityName:"",//城市名称
+            msg:"",
+        },
+        methods:{
+            getInfo(cityName){
+                    console.log(cityName);
+                    axios.get("http://localhost:8989/weather/getInfo?cityName="+cityName).then(response=>{
+                        console.log(response.data);
+                        this.msg=response.data.msg;
+                    })
+            },
+        }
+    });
+
+</script>
+</body>
+</html>

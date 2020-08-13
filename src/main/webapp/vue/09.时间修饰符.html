@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+<div id="app">
+    只允许一次发生事件：------》
+    <span>{{init}}</span><br>
+    <button @click.once="once">点我加1</button>
+    <hr>
+    <br>
+
+    stop防止事件冒泡：————————》儿子的变化：{{init}} 父亲的变化：{{initp}}
+    <div @click="addp"><button @click="once">没加stop的情况:点我加1</button></div>
+    <div @click="addp"><button @click.stop="once">加stop的情况:</button></div>
+    <hr><br>
+    prevent 事件修饰符  用来阻止标签的默认行为 <br>
+    <a href="http://www.baizhibest.com/" @click.prevent="">百知教育</a>
+    <hr>
+    <br>
+    self 事件修饰符用来针对于当前标签的事件触发     ===========> 只触发自己标签的上特定动作的事件     只关心自己标签上触发的事件 不监听事件冒泡
+    只能用在父类上解决了，stop是对向上冒泡的结束，而self意味着只能自己触发，儿子不影响自己
+
+    <div  @click.self="divClick">
+        {{msg}}<br>
+        <!--用来阻止事件冒泡--><!--只触发标签自身的事件-->
+        <input type="button" value="按钮1" @click.self="btnClick">按钮一的值：{{btn}}<br>
+        <input type="button" value="按钮2" @click="btnClick1">按钮二的值：{{btn2}}<br>
+    </div>
+</div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+           init:1,
+           initp:100,
+           msg:"dds",
+           btn:11,
+           btn2:22
+        },
+        methods:{
+            once(){
+                this.init++;
+            },
+            addp(){
+                this.initp++;
+            },
+            btnClick(){
+                 this.btn++;
+            },
+            btnClick1(){
+                this.btn2++;
+            },
+            divClick(){
+                this.msg+="我是爸爸！，我变了";
+            }
+
+
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

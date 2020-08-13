@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</head>
+<body>
+    <div id="app">
+        {{ msg }}--------------{{username}}
+
+    </div>
+    <script>
+        <!--创建vue实例,一个页面只能有一个vue对象-->
+        var app = new Vue({
+            el: "#app",//element 元素 用来指定vue实例在当前页面得作用范围
+            data:{//data数据用来给vue实例中定义数据
+                msg:"hello vue!!!",
+                username:"lee",
+            },
+
+        });
+
+    </script>
+</body>
+</html>

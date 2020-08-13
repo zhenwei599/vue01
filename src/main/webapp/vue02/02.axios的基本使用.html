@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>axios使用</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+
+
+</div>
+
+<script>
+    axios.get('http://localhost:8989/user/findOne?id=21').then(
+        function (response) {
+            console.log(response.data);
+            console.log(response.data.msg);
+        }).catch(function (error) {
+            console.log(error);
+            alert("你好出错了");
+
+    });
+
+    axios.post("http://localhost:8989/user/save",{
+        /*如果时间参数要时分秒的话，那么需要在data中添加接送format注解设定格式，
+        * 因为，使用RequestBody是会用接送format格式转化，默认是yyyy-mm-dd
+        * */
+        id:1,name:"lee",age:18,bir:"2020-01-12"
+    }).then(function (response) {
+        console.log(response.data);
+        
+    });
+    function findone(){
+        return  axios.get('http://localhost:8989/user/findOne?id=21');
+    }
+    function save(){
+        return  axios.post("http://localhost:8989/user/save");
+    }
+
+    //并发执行
+    axios.all([findone(),save()]).then(
+        axios.spread(function(res1,res2){
+            console.log(res1.data);
+            console.log(res2.data);
+        })
+    );
+
+    //箭头函数
+    axios.get('http://localhost:8989/user/findOne?id=21').then(res=>{
+    }).catch(error=>{console.log(error)});
+
+
+
+
+
+</script>
+</body>
+</html>

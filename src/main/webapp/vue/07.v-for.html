@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <ul>
+        //对于对象的参数顺序严格要求，一二三个分别为，key，value，index，才能正确获取值
+        <li v-for="(key,value,index) in user" :key="index">
+            {{index}}———{{key}}:{{value}}
+        </li>
+    </ul>
+    <br>
+    <ul>
+        此处对于v-for="a,index in ..." 中a和index的顺序严格要求
+        <li v-for="a,index in arrs" :key="index">
+            {{index}} : {{a}}
+        </li>
+    </ul>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            user:{
+                name:"lee",
+                age:18,
+                len:19
+            },
+            arrs:["红","黄","蓝","绿"]
+              },
+        methods:{
+
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

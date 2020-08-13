@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .aa{
+            background-color: #6fff00;
+            width: 200px;
+            height: 200px;
+        }
+        .bb{
+            width:500px;
+            height:500px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    v-bind 使用vue为dom对象绑定属性 v-bind:class="{aa:isShow}" 可以用：class=“”代替
+    注意：已有属性不能通过该属性改变  class属性只能{类名:true}这样开启
+    <div   v-bind:class="{aa:isShow}"   > 你好</div>
+    <img :src="src" :title="title" :class="{bb:true}" width="300px" height="300px">
+    <hr>
+    <button @click="changeIsShow">点击更换样式</button>
+
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            isShow:true,
+            title:"一片黑",
+            src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596647498665&di=fc505df8204c66c4c122bb01e2991c0c&imgtype=0&src=http%3A%2F%2Ft8.baidu.com%2Fit%2Fu%3D3571592872%2C3353494284%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D1200%26h%3D1290"
+        },
+        methods:{
+            changeIsShow(){
+                console.log(this.isShow);
+                 this.isShow=!this.isShow;
+            }
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

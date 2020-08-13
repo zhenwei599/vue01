@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+<div id="app">
+
+    @keyup监听事件，.enter说明当前事件只有enter抬起才执行 <br>
+    <!--keyup-&#45;&#45;keydown-->
+    <input type="text" v-model="msg" @keyup.enter="keyup">
+
+</div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"你好",
+        },
+        methods:{
+            keyup(){
+                console.log("键盘抬起")
+            }
+
+
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

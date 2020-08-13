@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+    <!--导航条-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">员工信息管理</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li ><a>欢迎：小李</a> </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9">
+                <table class="table table-cell">
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>生日</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>小黑</td>
+                        <td>18</td>
+                        <td>1998-10-08</td>
+                        <td><button class="btn btn-primary">编辑</button> <button class="btn btn-danger">删除</button></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-sm-3">
+                <form>
+                    <div class="form-group">
+                        <label  class="col-sm-2 " style="text-align: left;">ID：      </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static"  >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName">名称：</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge">年龄：</label>
+                        <input type="text" class="form-control" id="inputAge" placeholder="age">
+                    </div>
+                    <div class="form-group">
+                    <label for="inputBir">生日：</label>
+                    <input type="date" class="form-control" id="inputBir" placeholder="1998-10-08">
+                </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    底层是控制display属性  true/false
+
+    <!--直接使用boolean-->
+     <div  v-show="flag" id="dd" style="background-color:#fc7400; width: 100px; height: 100px;" ></div>
+    <!--三目运算符判断-->
+     <div  v-show="len>18?true:false" id="ee" style="background-color:#b7e1fa; width: 100px; height: 100px;" ></div>
+    <!--使用字符串判断，如果为空为false，否则为true-->
+     <div  v-show="str" id="ff" style="background-color:#efe9c1; width: 100px; height: 100px;" ></div>
+
+
+    <hr>
+    <button @click="show">点击显示或隐藏</button>
+    <button @click="decr">点击长度剪一</button>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            flag:true,
+            len:30,
+            str:"1",
+        },
+        methods:{
+            show(){
+                this.flag=!this.flag;
+            },
+            decr(){
+                this.len--;
+            }
+
+        }
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

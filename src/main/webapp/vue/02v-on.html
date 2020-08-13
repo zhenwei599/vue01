@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}<br>
+        {{age}}<br>
+        <!--vue中事件绑定  v-on:事件名-->
+
+        <input type="button" value="点我进行信息修改" v-on:click="aa" v-on:dblClick="bb">
+
+    </div>
+    <script>
+        <!--创建vue实例,一个页面只能有一个vue对象-->
+        var app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello vue",
+                age:22
+            },
+            methods:{//定义vue中的事件方法函数
+                aa:function () {
+                    console.log("-------------------------");
+                    console.log(this);  //取出vue实例对象
+                    console.log(this.msg);
+                    this.msg+="hello vue";
+                },
+                bb:function () {
+                    this.age+=1;
+                }
+            }
+
+        });
+
+    </script>
+</body>
+</html>
