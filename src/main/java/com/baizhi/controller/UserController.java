@@ -22,6 +22,7 @@ public class UserController {
         map.put("status",true);
         map.put("msg","你好");
 //        throw new RuntimeException("出错");
+        System.out.println("在IDEA中添加一行代码");
         return map;
     }
     @PostMapping("/user/save")
